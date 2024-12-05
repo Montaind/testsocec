@@ -1,4 +1,4 @@
-import { questions } from './src/questions.js';
+import { questions } from './src/questions/index.js';
 import { getRandomQuestions } from './src/utils.js';
 
 let currentQuestions = [];
@@ -8,7 +8,7 @@ let score = 0;
 function startQuiz() {
     currentQuestionIndex = 0;
     score = 0;
-    currentQuestions = getRandomQuestions(questions, 5);
+    currentQuestions = getRandomQuestions(questions, 10);
     document.getElementById('quiz').classList.remove('hide');
     document.getElementById('results').classList.add('hide');
     showQuestion();
@@ -17,7 +17,7 @@ function startQuiz() {
 function showQuestion() {
     const questionData = currentQuestions[currentQuestionIndex];
     const questionElement = document.getElementById('question');
-    questionElement.textContent = `Вопрос ${currentQuestionIndex + 1} из 5: ${questionData.question}`;
+    questionElement.textContent = `Вопрос ${currentQuestionIndex + 1} из 10: ${questionData.question}`;
     
     const choicesContainer = document.getElementById('choices');
     choicesContainer.innerHTML = '';
